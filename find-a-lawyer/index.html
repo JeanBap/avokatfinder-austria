@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/css/style.css">
+<style>:root{--country-primary:#ED2939;--country-secondary:#FFFFFF;}</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><img src="/img/logo.svg" alt="AvökatFinder" class="logo-img" width="60" height="28"><span class="logo-text">AvökatFinder <span>Austria</span></span></a>
+    <button class="hamburger" aria-label="Open menu">&#9776;</button>
+    <nav>
+      <a href="/practice-areas/">Practice Areas</a>
+      <a href="/cities/">By City</a>
+      <a href="/blog/">Expat Guides</a>
+      <a href="/find-a-lawyer/" class="active" class="nav-cta">Find My Lawyer</a>
+      <a href="/dashboard/">My Saved</a>
+    </nav>
+  </div>
+</header>
+<section class="page-hero">
+  <div class="container">
+    <h1>Find My Lawyer in Austria</h1>
+    <p>Answer 5 quick questions to match with the best English-speaking law firms for your situation.</p>
+  </div>
+</section>
+<section style="background:var(--off-white);padding:clamp(2rem,5vw,4rem) 24px;">
+  <div class="wizard-wrap">
+    <div class="wizard-card">
+      <div class="wizard-header"><h2>Find Your Lawyer</h2><p>5 questions &mdash; personalised matches in under a minute</p></div>
+      <div class="wizard-progress">
+        <div class="wizard-steps-bar" id="steps-bar">
+          <div class="wstep active" id="s1">1</div><div class="wstep-line" id="l1"></div>
+          <div class="wstep" id="s2">2</div><div class="wstep-line" id="l2"></div>
+          <div class="wstep" id="s3">3</div><div class="wstep-line" id="l3"></div>
+          <div class="wstep" id="s4">4</div><div class="wstep-line" id="l4"></div>
+          <div class="wstep" id="s5">5</div>
+        </div>
+      </div>
+      <div class="wizard-body">
+        <div class="wizard-step active" id="step-1">
+          <h2>Who needs legal help?</h2>
+          <div class="wizard-opts grid2">
+            <button class="wopt" data-key="entity" data-val="individual"><strong>Individual</strong><br><small>Personal or family matter</small></button>
+            <button class="wopt" data-key="entity" data-val="company"><strong>Business / Company</strong><br><small>Corporate or commercial matter</small></button>
+          </div>
+        </div>
+        <div class="wizard-step" id="step-2">
+          <h2>What type of legal help?</h2>
+          <div class="wizard-opts grid3"><button class="wopt" data-key="area" data-val="corporate-ma">Corporate & M&A</button>
+<button class="wopt" data-key="area" data-val="immigration">Immigration Law</button>
+<button class="wopt" data-key="area" data-val="real-estate">Real Estate Law</button>
+<button class="wopt" data-key="area" data-val="employment">Employment Law</button>
+<button class="wopt" data-key="area" data-val="golden-visa">Golden Visa & Residency</button>
+<button class="wopt" data-key="area" data-val="dispute-resolution">Dispute Resolution</button>
+<button class="wopt" data-key="area" data-val="banking-finance">Banking & Finance</button>
+<button class="wopt" data-key="area" data-val="family-law">Family Law</button>
+<button class="wopt" data-key="area" data-val="criminal-law">Criminal Law</button>
+<button class="wopt" data-key="area" data-val="intellectual-property">Intellectual Property</button>
+<button class="wopt" data-key="area" data-val="tax">Tax Law</button>
+<button class="wopt" data-key="area" data-val="data-protection">Data Protection & IT</button>
+</div>
+        </div>
+        <div class="wizard-step" id="step-3">
+          <h2>Which city?</h2>
+          <div class="wizard-opts grid2"><button class="wopt" data-key="city" data-val="bregenz">Bregenz</button>
+<button class="wopt" data-key="city" data-val="dornbirn">Dornbirn</button>
+<button class="wopt" data-key="city" data-val="eisenstadt">Eisenstadt</button>
+<button class="wopt" data-key="city" data-val="graz">Graz</button>
+<button class="wopt" data-key="city" data-val="innsbruck">Innsbruck</button>
+<button class="wopt" data-key="city" data-val="klagenfurt">Klagenfurt</button>
+<button class="wopt" data-key="city" data-val="linz">Linz</button>
+<button class="wopt" data-key="city" data-val="salzburg">Salzburg</button>
+<button class="wopt" data-key="city" data-val="st-polten">St. Pölten</button>
+<button class="wopt" data-key="city" data-val="vienna">Vienna</button>
+<button class="wopt" data-key="city" data-val="villach">Villach</button>
+<button class="wopt" data-key="city" data-val="wels">Wels</button>
+<button class="wopt" data-key="city" data-val="any">Other / No preference</button></div>
+        </div>
+        <div class="wizard-step" id="step-4">
+          <h2>Language preference?</h2>
+          <div class="wizard-opts grid2">
+            <button class="wopt" data-key="lang" data-val="any">English only</button>
+            <button class="wopt" data-key="lang" data-val="german">+ German</button>
+            <button class="wopt" data-key="lang" data-val="french">+ French</button>
+            <button class="wopt" data-key="lang" data-val="spanish">+ Spanish</button>
+            <button class="wopt" data-key="lang" data-val="any">No preference</button>
+          </div>
+        </div>
+        <div class="wizard-step" id="step-5">
+          <h2>Firm type preference?</h2>
+          <div class="wizard-opts">
+            <button class="wopt" data-key="service" data-val="international"><strong>Large international firm</strong><br><small>Highest rates, deepest resources</small></button>
+            <button class="wopt" data-key="service" data-val="mid"><strong>Mid-size local firm</strong><br><small>Strong local knowledge</small></button>
+            <button class="wopt" data-key="service" data-val="boutique"><strong>Boutique specialist</strong><br><small>Personal service, focused expertise</small></button>
+            <button class="wopt" data-key="service" data-val="any">No preference</button>
+          </div>
+        </div>
+        <div class="wizard-results" id="step-results">
+          <h2>Your Top Matches</h2>
+          <p>Best-matched English-speaking law firms in Austria for your situation.</p>
+          <div id="wizard-results-list"></div>
+          <div style="margin-top:24px;text-align:center;">
+            <a href="/practice-areas/" class="btn btn-ghost">Browse all firms</a>
+            <button class="btn btn-primary" id="wizard-restart" style="margin-left:12px;">Start over</button>
+          </div>
+        </div>
+        <div class="wizard-nav" id="wizard-nav">
+          <button class="wbtn-back" id="wbtn-back" style="visibility:hidden">&larr; Back</button>
+          <span id="wstep-label" style="font-size:0.82rem;color:var(--text-muted)">Step 1 of 5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo"><img src="/img/logo.svg" alt="AvökatFinder" width="44" height="20"
+         style="vertical-align:middle;margin-right:8px;filter:brightness(0) invert(1)">AvökatFinder Austria</a>
+      <p>The English-language guide to lawyers in Austria for expats and foreign nationals.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Practice Areas</h4><ul><li><a href="/practice-areas/corporate-ma/">Corporate & M&A</a></li>
+<li><a href="/practice-areas/immigration/">Immigration Law</a></li>
+<li><a href="/practice-areas/real-estate/">Real Estate Law</a></li>
+<li><a href="/practice-areas/employment/">Employment Law</a></li>
+<li><a href="/practice-areas/golden-visa/">Golden Visa & Residency</a></li>
+<li><a href="/practice-areas/dispute-resolution/">Dispute Resolution</a></li></ul>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/find-a-lawyer/">Find My Lawyer</a></li>
+        <li><a href="/cities/">Lawyers by City</a></li>
+        <li><a href="/blog/">Expat Guides</a></li>
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 AvökatFinder. For informational purposes only — not legal advice.
+       <a href="mailto:info@avokatfinder.com">info@avokatfinder.com</a></p>
+  </div>
+</footer>
+<script src="/js/main.js"></script>
+</body></html>
+<script>
+(function(){
+const FIRMS=[{"name":"Schoenherr","slug":"schoenherr","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.schoenherr.eu/","email":"vienna@schoenherr.eu","phone":"+43 1 53452-0"},{"name":"Wolf Theiss","slug":"wolf-theiss","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.wolftheiss.com/","email":"vienna@wolftheiss.com","phone":"+43 1 51500-0"},{"name":"Freshfields Bruckhaus Deringer","slug":"freshfields-bruckhaus-deringer","areas":["banking-finance","real-estate","employment","corporate-ma","dispute-resolution"],"city":"vienna","langs":"english, german","type":"International","size":"mid","website":"https://www.freshfields.com/","email":"vienna@freshfields.com","phone":"+43 1 515 10-0"},{"name":"Baker McKenzie","slug":"baker-mckenzie","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"International","size":"mid","website":"https://www.bakermckenzie.com/","email":"vienna@bakermckenzie.com","phone":"+43 1 515 160-0"},{"name":"DLA Piper","slug":"dla-piper","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.dlapiper.com/","email":"vienna@dlapiper.com","phone":"+43 1 503 47-0"},{"name":"CMS","slug":"cms","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"International","size":"mid","website":"https://cms.law/","email":"vienna@cms.law","phone":"+43 1 213 22-0"},{"name":"Herbst Kinsky","slug":"herbst-kinsky","areas":["family-law","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://herbst-kinsky.at/","email":"office@herbst-kinsky.at","phone":"+43 1 53456-0"},{"name":"Cerha Hempel","slug":"cerha-hempel","areas":["tax","banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.cerha-hempel.at/","email":"office@cerha-hempel.at","phone":"+43 1 40620-0"},{"name":"Doralt & Partner","slug":"doralt-partner","areas":["family-law","tax","real-estate","employment","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.doralt.com/","email":"office@doralt.com","phone":"+43 1 50160-0"},{"name":"Graf & Pitkowitz","slug":"graf-pitkowitz","areas":["tax","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.grafpitkowitz.at/","email":"office@grafpitkowitz.at","phone":"+43 1 5 35 25-0"},{"name":"Schrems & Partner","slug":"schrems-partner","areas":["family-law","real-estate","employment","corporate-ma","immigration"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.schrems.at/","email":"office@schrems.at","phone":"+43 1 5320-777-0"},{"name":"Gr\u00fcnwald & Gr\u00fcnwald","slug":"grunwald-grunwald","areas":["family-law","tax","real-estate","employment","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.gruenwaldlaw.at/","email":"office@gruenwaldlaw.at","phone":"+43 1 5351234"},{"name":"Fellner Wratzfeld & Partners","slug":"fellner-wratzfeld-partners","areas":["employment","family-law","corporate-ma","real-estate"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.fellner-wratzfeld.at/","email":"office@fellner-wratzfeld.at","phone":"+43 1 5125950"},{"name":"Dorda Rechtsanw\u00e4lte","slug":"dorda-rechtsanwalte","areas":["family-law","tax","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.dorda.at/","email":"office@dorda.at","phone":"+43 1 5154545-0"},{"name":"Taylor Wessing","slug":"taylor-wessing","areas":["banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.taylorwessing.com/","email":"vienna@taylorwessing.com","phone":"+43 1 710 67-0"},{"name":"Klete\u010dka & Partner","slug":"kletecka-partner","areas":["family-law","tax","real-estate","employment","corporate-ma"],"city":"graz","langs":"english, german","type":"Local","size":"mid","website":"https://www.kletecka.at/","email":"office@kletecka.at","phone":"+43 316 830-333"},{"name":"Kunz & Partner Rechtsanw\u00e4lte","slug":"kunz-partner-rechtsanwalte","areas":["family-law","real-estate","employment","corporate-ma","immigration"],"city":"salzburg","langs":"english, german","type":"Local","size":"mid","website":"https://www.kunz-partner.at/","email":"salzburg@kunz-partner.at","phone":"+43 662 89-5900"},{"name":"Linz & Partner Rechtsanw\u00e4lte","slug":"linz-partner-rechtsanwalte","areas":["family-law","tax","real-estate","employment","corporate-ma"],"city":"linz","langs":"english, german","type":"Local","size":"mid","website":"https://www.linz-partner.at/","email":"office@linz-partner.at","phone":"+43 732 658-888"},{"name":"Innsbruck Legal Counsel","slug":"innsbruck-legal-counsel","areas":["employment","family-law","corporate-ma","real-estate"],"city":"innsbruck","langs":"english, german","type":"Local","size":"mid","website":"https://www.innsbrucklegal.at/","email":"info@innsbrucklegal.at","phone":"+43 512 566-999"},{"name":"Klagenfurt Rechtsanw\u00e4lte","slug":"klagenfurt-rechtsanwalte","areas":["family-law","real-estate","employment","corporate-ma","immigration"],"city":"klagenfurt","langs":"english, german","type":"Local","size":"mid","website":"https://www.klagenfurt-law.at/","email":"office@klagenfurt-law.at","phone":"+43 463 555-123"},{"name":"Eisenstadt Legal Services","slug":"eisenstadt-legal-services","areas":["family-law","tax","real-estate","employment","corporate-ma"],"city":"eisenstadt","langs":"english, german","type":"Local","size":"mid","website":"https://www.eisenstadt-legal.at/","email":"contact@eisenstadt-legal.at","phone":"+43 2682 520-555"},{"name":"H\u00f6herer Dienst","slug":"hoherer-dienst","areas":["employment","immigration","family-law","corporate-ma"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.hoehererdienst.at/","email":"vienna@hoehererdienst.at","phone":"+43 1 4041234"},{"name":"Migrationsconsulting Vienna","slug":"migrationsconsulting-vienna","areas":["immigration","family-law","employment"],"city":"vienna","langs":"english, german, french","type":"Local","size":"mid","website":"https://www.migrationsvisa.at/","email":"info@migrationsvisa.at","phone":"+43 1 2142145"},{"name":"Real Estate Legal Vienna","slug":"real-estate-legal-vienna","areas":["employment","tax","corporate-ma","real-estate"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.realestatelegal-vienna.at/","email":"contact@realestatelegal-vienna.at","phone":"+43 1 5896523"},{"name":"Corporate Plus Austria","slug":"corporate-plus-austria","areas":["employment","corporate-ma","real-estate"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.corporateplus-austria.at/","email":"office@corporateplus-austria.at","phone":"+43 1 5125874"},{"name":"Tax & Legal Solutions","slug":"tax-legal-solutions","areas":["employment","tax","corporate-ma","real-estate"],"city":"vienna","langs":"english, german","type":"Local","size":"mid","website":"https://www.taxlegalsolutions-at.at/","email":"info@taxlegalsolutions-at.at","phone":"+43 1 4125412"},{"name":"Alpine Legal Partners","slug":"alpine-legal-partners","areas":["employment","corporate-ma","real-estate"],"city":"innsbruck","langs":"english, german","type":"Local","size":"mid","website":"https://www.alpinelegal.at/","email":"innsbruck@alpinelegal.at","phone":"+43 512 458-123"},{"name":"Salzburg Business Law","slug":"salzburg-business-law","areas":["employment","family-law","corporate-ma","real-estate"],"city":"salzburg","langs":"english, german","type":"Local","size":"mid","website":"https://www.salzburg-businesslaw.at/","email":"info@salzburg-businesslaw.at","phone":"+43 662 456-789"},{"name":"Graz Corporate Counsel","slug":"graz-corporate-counsel","areas":["employment","corporate-ma","real-estate"],"city":"graz","langs":"english, german","type":"Local","size":"mid","website":"https://www.grazcorp.at/","email":"office@grazcorp.at","phone":"+43 316 589-456"},{"name":"Linz Business Associates","slug":"linz-business-associates","areas":["employment","tax","corporate-ma","real-estate"],"city":"linz","langs":"english, german","type":"Local","size":"mid","website":"https://www.linzbusiness.at/","email":"contact@linzbusiness.at","phone":"+43 732 789-123"},{"name":"Expat Law Vienna","slug":"expat-law-vienna","areas":["family-law","tax","real-estate","employment","immigration"],"city":"vienna","langs":"english, german, french, italian","type":"Local","size":"mid","website":"https://www.expatlaw.at/","email":"hello@expatlaw.at","phone":"+43 1 6542311"},{"name":"Sch\u00f6nherr","slug":"schonherr","areas":["banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"german, english, french, czech","type":"Local","size":"mid","website":"schoenherr.eu","email":"vienna@schoenherr.eu","phone":"+43 1 534 37 0"},{"name":"Binder Grosser","slug":"binder-grosser","areas":["employment","tax","corporate-ma","real-estate"],"city":"vienna","langs":"german, english, french","type":"Local","size":"mid","website":"bindergrosser.at","email":"wien@bindergrosser.at","phone":"+43 1 211 45 0"},{"name":"Freshfields Bruckhaus Deringer Vienna","slug":"freshfields-bruckhaus-deringer-vienna","areas":["intellectual-property","banking-finance","corporate-ma","real-estate"],"city":"vienna","langs":"german, english, french","type":"International","size":"mid","website":"freshfields.com","email":"vienna@freshfields.com","phone":"+43 1 212 32 0"},{"name":"CMS Austria","slug":"cms-austria","areas":["tax","real-estate","employment","corporate-ma","immigration"],"city":"vienna","langs":"german, english, french","type":"International","size":"mid","website":"cms.law","email":"vienna@cms.law","phone":"+43 1 211 71 0"},{"name":"DLA Piper Austria","slug":"dla-piper-austria","areas":["banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"german, english, french","type":"Local","size":"mid","website":"dlapiper.com","email":"vienna@dlapiper.com","phone":"+43 1 503 53 0"},{"name":"Eversheds Sutherland Austria","slug":"eversheds-sutherland-austria","areas":["banking-finance","real-estate","employment","intellectual-property","corporate-ma"],"city":"vienna","langs":"german, english, french","type":"Local","size":"mid","website":"eversheds-sutherland.com","email":"vienna@eversheds.com","phone":"+43 1 534 37 1000"},{"name":"KPMG Law Austria","slug":"kpmg-law-austria","areas":["tax","real-estate","employment","corporate-ma","immigration"],"city":"vienna","langs":"german, english, french","type":"Local","size":"mid","website":"kpmg.at","email":"legal@kpmg.at","phone":"+43 1 33 61 0"},{"name":"Dorda Brundtland Lawyers","slug":"dorda-brundtland-lawyers","areas":["employment","family-law","corporate-ma","real-estate"],"city":"vienna","langs":"german, english, french","type":"Local","size":"mid","website":"dorda.at","email":"wien@dorda.at","phone":"+43 1 512 72 00"},{"name":"Runschke & Partners","slug":"runschke-partners","areas":["tax","real-estate","employment","corporate-ma","immigration"],"city":"vienna","langs":"german, english, french, russian","type":"Local","size":"mid","website":"runschke.at","email":"wien@runschke.at","phone":"+43 1 408 88 33"},{"name":"Graz Law Office","slug":"graz-law-office","areas":["employment","family-law","corporate-ma","real-estate"],"city":"graz","langs":"german, english, french","type":"Local","size":"mid","website":"graz-law.at","email":"info@graz-law.at","phone":"+43 316 812345"},{"name":"Steiermark Rechtsanwalte","slug":"steiermark-rechtsanwalte","areas":["employment","tax","corporate-ma","real-estate"],"city":"graz","langs":"german, english, french","type":"Local","size":"mid","website":"steiermark-recht.at","email":"graz@steiermark-recht.at","phone":"+43 316 823456"},{"name":"Kahr & Associates Graz","slug":"kahr-associates-graz","areas":["employment","intellectual-property","corporate-ma","real-estate"],"city":"graz","langs":"german, english, german","type":"Local","size":"mid","website":"kahr-advokat.at","email":"graz@kahr.at","phone":"+43 316 834567"},{"name":"Linz Rechtskanzlei","slug":"linz-rechtskanzlei","areas":["employment","family-law","corporate-ma","real-estate"],"city":"linz","langs":"german, english, french","type":"Local","size":"mid","website":"linz-legal.at","email":"info@linz-legal.at","phone":"+43 732 776123"},{"name":"Ober\u00f6sterreich Advokaten","slug":"oberosterreich-advokaten","areas":["employment","tax","corporate-ma","real-estate"],"city":"linz","langs":"german, english, french","type":"Local","size":"mid","website":"oberoe-advokat.at","email":"linz@oberoe.at","phone":"+43 732 787234"},{"name":"Salzburg Lawfirm","slug":"salzburg-lawfirm","areas":["employment","immigration","corporate-ma","real-estate"],"city":"salzburg","langs":"german, english, french","type":"Local","size":"mid","website":"salzburg-law.at","email":"info@salzburg-law.at","phone":"+43 662 843567"},{"name":"Salzburger Rechtsanwalt","slug":"salzburger-rechtsanwalt","areas":["family-law","employment","real-estate"],"city":"salzburg","langs":"german, english, german","type":"Local","size":"mid","website":"salzburg-ra.at","email":"salzburg@salzburg-ra.at","phone":"+43 662 854678"},{"name":"Innsbruck Legal","slug":"innsbruck-legal","areas":["employment","corporate-ma","real-estate"],"city":"innsbruck","langs":"german, english, french","type":"Local","size":"mid","website":"innsbruck-legal.at","email":"info@innsbruck-legal.at","phone":"+43 512 562345"},{"name":"Tirol Anwaltsbuero","slug":"tirol-anwaltsbuero","areas":["family-law","employment","real-estate"],"city":"innsbruck","langs":"german, english, german","type":"Local","size":"mid","website":"tirol-anwalt.at","email":"innsbruck@tirol-anwalt.at","phone":"+43 512 573456"},{"name":"Klagenfurt Rechtskanzlei","slug":"klagenfurt-rechtskanzlei","areas":["employment","family-law","corporate-ma","real-estate"],"city":"klagenfurt","langs":"german, english, french","type":"Local","size":"mid","website":"klagenfurt-law.at","email":"info@klagenfurt-law.at","phone":"+43 463 512789"},{"name":"K\u00e4rnten Advokaten","slug":"karnten-advokaten","areas":["employment","tax","corporate-ma","real-estate"],"city":"klagenfurt","langs":"german, english, german","type":"Local","size":"mid","website":"kaernten-advokat.at","email":"klagenfurt@kaernten.at","phone":"+43 463 523890"},{"name":"Villach Legal Services","slug":"villach-legal-services","areas":["employment","family-law","corporate-ma","real-estate"],"city":"villach","langs":"german, english, german","type":"Local","size":"mid","website":"villach-legal.at","email":"info@villach-legal.at","phone":"+43 4242 234567"},{"name":"Wels Anwaltskanzlei","slug":"wels-anwaltskanzlei","areas":["employment","tax","corporate-ma","real-estate"],"city":"wels","langs":"german, english, german","type":"Local","size":"mid","website":"wels-anwalt.at","email":"info@wels-anwalt.at","phone":"+43 7242 345678"},{"name":"St. P\u00f6lten Law Office","slug":"st-polten-law-office","areas":["employment","family-law","corporate-ma","real-estate"],"city":"st. p\u00f6lten","langs":"german, english, german","type":"Local","size":"mid","website":"stpoelten-law.at","email":"info@stpoelten-law.at","phone":"+43 2742 456789"},{"name":"Dornbirn Rechtskanzlei","slug":"dornbirn-rechtskanzlei","areas":["employment","corporate-ma","real-estate"],"city":"dornbirn","langs":"german, english, german","type":"Local","size":"mid","website":"dornbirn-law.at","email":"info@dornbirn-law.at","phone":"+43 5572 567890"},{"name":"Bregenz Legal Firm","slug":"bregenz-legal-firm","areas":["employment","family-law","corporate-ma","real-estate"],"city":"bregenz","langs":"german, english, german","type":"Local","size":"mid","website":"bregenz-law.at","email":"info@bregenz-law.at","phone":"+43 5574 678901"}];
+const answers={};let step=1;
+function scoreLabel(sc){return sc>=10?'Strong match':sc>=5?'Good match':sc>=2?'Possible match':'Listed firm';}
+function scoreDots(sc,max){const f=Math.min(5,Math.round((sc/Math.max(max,1))*5));return[1,2,3,4,5].map(i=>'<span style="color:'+(i<=f?'var(--gold)':'#ccc')+'">&#9679;</span>').join('');}
+function showResults(){
+  const scored=FIRMS.map(f=>{let sc=0;
+    if(answers.area&&f.areas.includes(answers.area))sc+=10;
+    if(answers.city&&answers.city!=='any'&&f.city===answers.city)sc+=5;
+    if(answers.lang&&answers.lang!=='any'&&f.langs.includes(answers.lang))sc+=3;
+    if(answers.entity==='company'&&f.type.includes('International'))sc+=2;
+    if(answers.entity==='individual'&&f.size==='boutique')sc+=2;
+    if(answers.service==='international'&&f.type.includes('International'))sc+=5;
+    else if(answers.service==='mid'&&f.size==='mid')sc+=5;
+    else if(answers.service==='boutique'&&f.size==='boutique')sc+=5;
+    else if(answers.service==='any')sc+=2;
+    return{f,sc};
+  }).sort((a,b)=>b.sc-a.sc).slice(0,3);
+  const maxSc=scored[0]?.sc||1;
+  const rl=['Best match','2nd choice','3rd choice'];
+  document.getElementById('wizard-results-list').innerHTML=scored.map(({f,sc},i)=>{
+    const areas=(f.areas||[]).slice(0,3).map(a=>'<span class="tag">'+a.replace(/-/g,' ')+'</span>').join('');
+    const links=[
+      f.website?'<a href="'+f.website+'" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Website</a>':'',
+      f.email?'<a href="mailto:'+f.email+'" class="btn btn-primary btn-small">Email</a>':'',
+      f.phone?'<a href="tel:'+f.phone.replace(/ /g,'')+'" class="btn btn-ghost btn-small">Call</a>':'',
+    ].filter(Boolean).join('');
+    return '<div class="result-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span class="result-rank">'+rl[i]+'</span><span style="font-size:0.8rem;color:var(--text-muted)">'+scoreDots(sc,maxSc)+' <em>'+scoreLabel(sc)+'</em></span></div><h3>'+f.name+'</h3><div class="result-tags">'+areas+'</div><div class="result-links">'+links+'</div></div>';
+  }).join('');
+}
+function goStep(n){
+  document.querySelectorAll('.wizard-step').forEach(el=>el.classList.remove('active'));
+  if(n==='results'){document.getElementById('step-results').classList.add('active');document.getElementById('wizard-nav').style.display='none';showResults();return;}
+  document.getElementById('step-'+n).classList.add('active');
+  for(let i=1;i<=5;i++){const s=document.getElementById('s'+i),l=document.getElementById('l'+i);
+    if(i<n){s.classList.add('done');s.classList.remove('active');if(l)l.classList.add('done');}
+    else if(i===n){s.classList.add('active');s.classList.remove('done');}
+    else{s.classList.remove('active','done');if(l)l.classList.remove('done');}
+  }
+  document.getElementById('wstep-label').textContent='Step '+n+' of 5';
+  document.getElementById('wbtn-back').style.visibility=n>1?'visible':'hidden';
+}
+document.querySelectorAll('.wopt').forEach(btn=>{btn.addEventListener('click',function(){
+  answers[this.dataset.key]=this.dataset.val;
+  this.closest('.wizard-opts').querySelectorAll('.wopt').forEach(b=>b.classList.remove('selected'));
+  this.classList.add('selected');
+  setTimeout(()=>{if(step<5){step++;goStep(step);}else{goStep('results');}},220);
+});});
+document.getElementById('wbtn-back').addEventListener('click',()=>{if(step>1){step--;goStep(step);}});
+document.getElementById('wizard-restart').addEventListener('click',()=>{Object.keys(answers).forEach(k=>delete answers[k]);step=1;document.getElementById('wizard-nav').style.display='';document.querySelectorAll('.wopt').forEach(b=>b.classList.remove('selected'));goStep(1);document.getElementById('step-results').classList.remove('active');});
+})();
+</script>
+</body></html>
