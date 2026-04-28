@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://austria.avokatfinder.com/sitemap.xml
