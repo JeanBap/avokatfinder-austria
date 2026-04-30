@@ -37,7 +37,43 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://austria.avokatfinder.com/glossary/Dienstbarkeit.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/Grundbuchangabe.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/Lastenausgleich.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/Realgebaude.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/Servitut.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://austria.avokatfinder.com/glossary/grundbuch-at/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/grundbuchauszug-land-register-extract.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -49,7 +85,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://austria.avokatfinder.com/glossary/hypothek-mortgage.html</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://austria.avokatfinder.com/glossary/meldezettel/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://austria.avokatfinder.com/glossary/mietvertrag-lease.html</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
