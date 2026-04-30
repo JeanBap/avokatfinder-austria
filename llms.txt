@@ -1,5 +1,36 @@
 # AvökatFinder Austria
-> English-speaking law firm directory for Austria
+> The English-language directory of lawyers and law firms in Austria for expats, foreign nationals and international businesses.
 
-Directory: https://austria.avokatfinder.com
-Email: info@avokatfinder.com
+## Main Pages
+- https://austria.avokatfinder.com/: Home — find an English-speaking lawyer in Austria
+- https://austria.avokatfinder.com/lawyers/: Directory of verified law firms and lawyers in Austria
+- https://austria.avokatfinder.com/glossary/: Legal glossary — plain-English definitions of Austria legal terms
+- https://austria.avokatfinder.com/blog/: Expat legal guides and property law articles for Austria
+- https://austria.avokatfinder.com/about/: About AvökatFinder Austria
+- https://austria.avokatfinder.com/contact/: Contact us
+
+## Legal Glossary Terms
+- https://austria.avokatfinder.com/glossary/Dienstbarkeit/
+- https://austria.avokatfinder.com/glossary/Grundbuchangabe/
+- https://austria.avokatfinder.com/glossary/Lastenausgleich/
+- https://austria.avokatfinder.com/glossary/Realgebaude/
+- https://austria.avokatfinder.com/glossary/Servitut/
+- https://austria.avokatfinder.com/glossary/grundbuch-at/
+- https://austria.avokatfinder.com/glossary/grundbuchauszug-land-register-extract/
+- https://austria.avokatfinder.com/glossary/grunderwerbsteuer-at/
+- https://austria.avokatfinder.com/glossary/hypothek-mortgage/
+- https://austria.avokatfinder.com/glossary/meldezettel/
+- https://austria.avokatfinder.com/glossary/mietvertrag-lease/
+- https://austria.avokatfinder.com/glossary/mietvertrag/
+- https://austria.avokatfinder.com/glossary/notar-at/
+
+## Site Info
+- Language: English
+- Audience: Expats, foreign nationals, international property buyers and businesses in Austria
+- Content: Law firm directory, legal glossary, expat legal guides
+- Last updated: 2026-04-30
+- Sitemap: https://austria.avokatfinder.com/sitemap.xml
+
+## Permissions
+User-agent: *
+Allow: /
