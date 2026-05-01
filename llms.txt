@@ -15,14 +15,19 @@
 - https://austria.avokatfinder.com/glossary/Lastenausgleich/
 - https://austria.avokatfinder.com/glossary/Realgebaude/
 - https://austria.avokatfinder.com/glossary/Servitut/
+- https://austria.avokatfinder.com/glossary/aufenthaltstitel-at/
 - https://austria.avokatfinder.com/glossary/grundbuch-at/
 - https://austria.avokatfinder.com/glossary/grundbuchauszug-land-register-extract/
 - https://austria.avokatfinder.com/glossary/grunderwerbsteuer-at/
 - https://austria.avokatfinder.com/glossary/hypothek-mortgage/
+- https://austria.avokatfinder.com/glossary/immobilienertragsteuer/
+- https://austria.avokatfinder.com/glossary/kaufvertrag-at/
 - https://austria.avokatfinder.com/glossary/meldezettel/
+- https://austria.avokatfinder.com/glossary/mietrechtsgesetz/
 - https://austria.avokatfinder.com/glossary/mietvertrag-lease/
 - https://austria.avokatfinder.com/glossary/mietvertrag/
 - https://austria.avokatfinder.com/glossary/notar-at/
+- https://austria.avokatfinder.com/glossary/wohnungseigentumsgesetz-at/
 
 ## Site Info
 - Language: English
