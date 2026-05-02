@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Templates - AvokatFinder Austria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 40px; }
+        h1 { color: #ed2939; margin-bottom: 40px; text-align: center; }
+        .templates-list { display: grid; gap: 25px; }
+        .template-card { border: 2px solid #ed2939; border-radius: 8px; padding: 25px; transition: all 0.3s; }
+        .template-card:hover { box-shadow: 0 6px 16px rgba(237, 41, 57, 0.2); }
+        .template-card h2 { color: #ed2939; margin-bottom: 10px; font-size: 1.3em; }
+        .template-card p { color: #666; margin-bottom: 15px; }
+        .lang-toggle { display: flex; gap: 10px; margin-bottom: 15px; }
+        .lang-btn { padding: 8px 16px; border: 1px solid #ddd; background: white; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
+        .lang-btn.active { background: #ed2939; color: white; border-color: #ed2939; }
+        .template-preview { background: #f9f9f9; padding: 15px; border-radius: 6px; max-height: 200px; overflow: hidden; font-size: 0.9em; line-height: 1.5; color: #555; }
+        .download-btn { display: inline-block; padding: 10px 20px; background: #ed2939; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; transition: background 0.3s; }
+        .download-btn:hover { background: #c41e35; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Austrian Legal Templates (Bilingual DE/EN)</h1>
+        
+        <div class="templates-list">
+            <div class="template-card">
+                <h2>Geheimhaltungsvereinbarung (NDA)</h2>
+                <p>Non-Disclosure Agreement under Austrian law (UWG §26, ABGB §1295). Protects confidential business information.</p>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="alert('Deutsch version: Geheimhaltungsvereinbarung_DE.docx')">📄 Deutsch</button>
+                    <button class="lang-btn" onclick="alert('English version: Confidentiality_Agreement_EN.docx')">📄 English</button>
+                </div>
+                <div class="template-preview">
+                    <strong>Geheimhaltungsvereinbarung (Auszug):</strong><br>
+                    "Die Empfänger-Partei verpflichtet sich, alle Informationen, die die Offenbarer-Partei mitteilt, vertraulich zu behandeln und nicht an Dritte weiterzugeben. Ausnahmen gelten für gesetzlich zwingende Offenbarungspflichten..."
+                </div>
+                <br>
+                <button class="download-btn" onclick="alert('Download: NDA_AT_2026.docx')">Download Template</button>
+            </div>
+
+            <div class="template-card">
+                <h2>Honorarvereinbarung / Vollmacht (Engagement Letter)</h2>
+                <p>Legal engagement letter and power of attorney under RAO §9. Establishes attorney-client relationship and fee structure.</p>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="alert('Deutsch version: Honorarvereinbarung_DE.docx')">📄 Deutsch</button>
+                    <button class="lang-btn" onclick="alert('English version: Engagement_Letter_EN.docx')">📄 English</button>
+                </div>
+                <div class="template-preview">
+                    <strong>Honorarvereinbarung (Auszug):</strong><br>
+                    "Der Rechtsanwalt wird den Auftraggeber in [Rechtsmaterie] vertreten. Die Gebühren werden nach RATG berechnet: € [Stundensatz]/Stunde plus 20% USt. Der Auftraggeber erteilt dem Anwalt Vollmacht gemäss RAO §9..."
+                </div>
+                <br>
+                <button class="download-btn" onclick="alert('Download: Honorarvereinbarung_AT_2026.docx')">Download Template</button>
+            </div>
+
+            <div class="template-card">
+                <h2>Mahnung / Klagedrohung (Demand Letter)</h2>
+                <p>Formal demand letter and notice of legal action under ABGB §1334 Verzug and ZPO §226. Critical step before litigation.</p>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" onclick="alert('Deutsch version: Mahnung_DE.docx')">📄 Deutsch</button>
+                    <button class="lang-btn" onclick="alert('English version: Demand_Letter_EN.docx')">📄 English</button>
+                </div>
+                <div class="template-preview">
+                    <strong>Mahnung (Auszug):</strong><br>
+                    "Hiermit fordern wir Sie auf, den Betrag von EUR [Betrag] innerhalb von 14 Tagen an [Konto] zu zahlen. Sollte dieser Betrag bis [Datum] nicht eingehen, werden wir ohne weitere Aufforderung rechtliche Schritte einleiten..."
+                </div>
+                <br>
+                <button class="download-btn" onclick="alert('Download: Mahnung_AT_2026.docx')">Download Template</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
