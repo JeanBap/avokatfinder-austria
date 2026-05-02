@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Tools & Calculators - AvokatFinder Austria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%); color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        h1 { text-align: center; color: #ed2939; margin-bottom: 50px; font-size: 2.5em; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .tool-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; border-left: 5px solid #ed2939; }
+        .tool-card:hover { transform: translateY(-8px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+        .tool-card img { width: 100%; height: 180px; object-fit: cover; background: linear-gradient(135deg, #ed2939, #fff3cd); }
+        .tool-content { padding: 25px; }
+        .tool-content h2 { color: #ed2939; margin-bottom: 12px; font-size: 1.4em; }
+        .tool-content p { color: #666; margin-bottom: 18px; font-size: 0.95em; }
+        .btn { display: inline-block; padding: 12px 24px; background: #ed2939; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
+        .btn:hover { background: #c41e35; }
+        footer { margin-top: 80px; padding-top: 40px; border-top: 1px solid #ddd; text-align: center; color: #999; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Austrian Legal Tools & Calculators</h1>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div style="background: linear-gradient(135deg, #ed2939 0%, #fff3cd 100%); height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3em;">📊</div>
+                <div class="tool-content">
+                    <h2>Legal Cost Calculator</h2>
+                    <p>Calculate Grunderwerbsteuer, income tax, social insurance contributions, and legal fees for Austrian transactions.</p>
+                    <a href="./legal-cost-calculator/" class="btn">Open Calculator</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div style="background: linear-gradient(135deg, #fff3cd 0%, #ed2939 100%); height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3em;">📄</div>
+                <div class="tool-content">
+                    <h2>Legal Templates</h2>
+                    <p>Free bilingual (DE/EN) templates: NDAs, engagement letters, and demand letters under Austrian law.</p>
+                    <a href="./legal-templates/" class="btn">View Templates</a>
+                </div>
+            </div>
+            <div class="tool-card">
+                <div style="background: linear-gradient(135deg, #c41e35 0%, #fff3cd 100%); height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3em;">⚖️</div>
+                <div class="tool-content">
+                    <h2>How to Choose a Lawyer</h2>
+                    <p>Interactive decision tree to find the right legal professional: Rechtsanwalt, Notar, Steuerberater, or Mediator.</p>
+                    <a href="./how-to-choose-a-lawyer/" class="btn">Start Guide</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 AvokatFinder Austria. Legal tools for Austrian legal professionals and businesses.</p>
+    </footer>
+</body>
+</html>
