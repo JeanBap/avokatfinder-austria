@@ -41,3 +41,10 @@
 ## Permissions
 User-agent: *
 Allow: /
+
+
+## Interactive Legal Tools
+- https://avokatfinder.com/austria/tools/
+- https://avokatfinder.com/austria/tools/legal-cost-calculator/
+- https://avokatfinder.com/austria/tools/legal-templates/
+- https://avokatfinder.com/austria/tools/how-to-choose-a-lawyer/
