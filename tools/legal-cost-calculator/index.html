@@ -1,191 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legal Cost Calculator - AvokatFinder Austria</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; }
-        h1 { background: linear-gradient(135deg, #ed2939, #c41e35); color: white; padding: 30px; text-align: center; }
-        .tabs { display: flex; border-bottom: 2px solid #ed2939; background: #f9f9f9; }
-        .tab-btn { flex: 1; padding: 15px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; border-bottom: 3px solid transparent; transition: all 0.3s; }
-        .tab-btn.active { color: #ed2939; border-bottom-color: #ed2939; background: white; }
-        .tab-content { display: none; padding: 40px; }
-        .tab-content.active { display: block; }
-        .form-group { margin-bottom: 25px; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
-        input, select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; transition: border-color 0.3s; }
-        input:focus, select:focus { border-color: #ed2939; outline: none; }
-        .result { background: #f0f0f0; padding: 20px; border-radius: 6px; margin-top: 20px; border-left: 5px solid #ed2939; }
-        .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
-        .result-row.total { font-weight: bold; font-size: 1.2em; border: none; color: #ed2939; }
-        .note { font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic; }
-        button { background: #ed2939; color: white; padding: 12px 30px; border: none; border-radius: 6px; font-size: 1em; font-weight: 600; cursor: pointer; transition: background 0.3s; }
-        button:hover { background: #c41e35; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austria Legal Cost Calculator 2025 | GrESt, KöSt, Abfertigung | AvökatFinder</title>
+<meta name="description" content="Calculate Austrian Grunderwerbsteuer (3.5%), KöSt 24%/23%, Abfertigung Neu and Rechtsanwalt fees with official 2025 rates.">
+<link rel="canonical" href="https://avokatfinder.com/austria/tools/legal-cost-calculator/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is Grunderwerbsteuer in Austria?","acceptedAnswer":{"@type":"Answer","text":"Grunderwerbsteuer (GrESt) is Austria's real estate transfer tax, charged at 3.5% on the purchase price for arm's length transactions. For family transfers (gift/inheritance), reduced rates apply: 2% up to €250,000, 3.5% up to €400,000, and 6% above. The Land Register entry fee (Eintragungsgebühr) is an additional 1.1%."}},
+{"@type":"Question","name":"What is the corporate tax rate in Austria 2025?","acceptedAnswer":{"@type":"Answer","text":"Austria's Körperschaftsteuer (KöSt) rate was reduced to 24% in 2023 and further to 23% from January 2024 as part of the Ökosoziale Steuerreform 2022."}}
+]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f8f9fa;color:#1a1a2e}
+header{background:#cc0000;color:#fff;padding:32px 20px;text-align:center}
+header h1{font-size:1.7rem;font-weight:700}
+.container{max-width:900px;margin:0 auto;padding:24px 20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tab-btn{padding:10px 20px;border:2px solid #cc0000;border-radius:6px;background:#fff;color:#cc0000;cursor:pointer;font-weight:600;font-size:.9rem}
+.tab-btn.active{background:#cc0000;color:#fff}
+.tab-panel{display:none;background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.tab-panel.active{display:block}
+.tab-panel h2{font-size:1.2rem;margin-bottom:16px;color:#cc0000}
+label{display:block;margin-bottom:6px;font-weight:600;font-size:.9rem}
+input,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:1rem;margin-bottom:16px}
+.btn{background:#cc0000;color:#fff;border:none;padding:12px 28px;border-radius:6px;font-size:1rem;cursor:pointer;font-weight:600}
+.result{background:#fff5f5;border:1px solid #cc0000;border-radius:8px;padding:16px;margin-top:16px}
+.result-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee;font-size:.95rem}
+.result-row:last-child{border-bottom:none;font-weight:700;color:#cc0000}
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.9rem}
+th{background:#cc0000;color:#fff;padding:10px;text-align:left}
+td{padding:9px;border-bottom:1px solid #eee}
+tr:nth-child(even) td{background:#fff5f5}
+footer{background:#1a1a2e;color:#fff;padding:24px 20px;text-align:center;font-size:.85rem;margin-top:40px}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Austrian Legal Cost Calculator</h1>
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('grest')">Grunderwerbsteuer</button>
-            <button class="tab-btn" onclick="showTab('income')">KöSt/ESt</button>
-            <button class="tab-btn" onclick="showTab('abfertigung')">Abfertigung</button>
-            <button class="tab-btn" onclick="showTab('anwalt')">Rechtsanwalt</button>
-        </div>
+<header>
+  <h1>🇦🇹 Austria Legal Cost Calculator 2025</h1>
+  <p>GrESt transfer tax · KöSt/ESt rates · Abfertigung · Rechtsanwalt fees</p>
+</header>
+<div class="container">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('grest')">Property (GrESt)</button>
+    <button class="tab-btn" onclick="showTab('kost')">Corporate Tax</button>
+    <button class="tab-btn" onclick="showTab('abf')">Abfertigung</button>
+    <button class="tab-btn" onclick="showTab('ra')">Rechtsanwalt</button>
+  </div>
 
-        <div id="grest" class="tab-content active">
-            <h2>Grunderwerbsteuer (Property Transfer Tax)</h2>
-            <div class="form-group">
-                <label>Purchase Price (EUR)</label>
-                <input type="number" id="grest-price" placeholder="450000" value="450000" oninput="calcGrESt()">
-            </div>
-            <div class="form-group">
-                <label>Transfer Type</label>
-                <select id="grest-type" onchange="calcGrESt()">
-                    <option value="normal">Normal Purchase</option>
-                    <option value="family">Family Transfer (Schenkung/Erbschaft)</option>
-                </select>
-            </div>
-            <button onclick="calcGrESt()">Calculate</button>
-            <div id="grest-result" class="result" style="display:none;">
-                <div class="result-row"><span>Grunderwerbsteuer (GrESt)</span><span id="grest-amt">€0</span></div>
-                <div class="result-row"><span>Eintragungsgebühr (Land Register, 1.1%)</span><span id="eintrag-amt">€0</span></div>
-                <div class="result-row"><span>Notargebühr (~1.5%)</span><span id="notar-amt">€0</span></div>
-                <div class="result-row"><span>Maklerprovision (~3% + 20% USt)</span><span id="makler-amt">€0</span></div>
-                <div class="result-row total"><span>Total Costs</span><span id="grest-total">€0</span></div>
-                <div class="note">GrESt: 3.5% standard rate. Family transfers: 2% up to €250k, 3.5% €250k-€400k, 6% above €400k.</div>
-            </div>
-        </div>
+  <div id="grest" class="tab-panel active">
+    <h2>Grunderwerbsteuer (GrESt) — Real Estate Transfer Tax</h2>
+    <label>Purchase Price (€)</label>
+    <input type="number" id="grest-price" placeholder="450000" value="450000">
+    <label>Transfer Type</label>
+    <select id="grest-type">
+      <option value="market">Market purchase (arm's length) — 3.5% GrESt</option>
+      <option value="family">Family transfer (Schenkung/Erbschaft) — reduced rates</option>
+    </select>
+    <button class="btn" onclick="calcGrESt()">Calculate</button>
+    <div id="grest-result" class="result" style="display:none"></div>
+    <table>
+      <thead><tr><th>Cost Item</th><th>Rate</th><th>Legal Basis</th></tr></thead>
+      <tbody>
+        <tr><td>GrESt (market purchase)</td><td>3.5%</td><td>GrEStG §7(1)(3)</td></tr>
+        <tr><td>GrESt (family — up to €250,000)</td><td>2%</td><td>GrEStG §7(1)(2)(a)</td></tr>
+        <tr><td>GrESt (family — €250,001–€400,000)</td><td>3.5%</td><td>GrEStG §7(1)(2)(b)</td></tr>
+        <tr><td>GrESt (family — above €400,000)</td><td>6%</td><td>GrEStG §7(1)(2)(c)</td></tr>
+        <tr><td>Eintragungsgebühr (Land Register)</td><td>1.1% of purchase price</td><td>GBG §26(1)</td></tr>
+        <tr><td>Pfandrechtseintragung (Mortgage)</td><td>1.2% of mortgage amount</td><td>GBG §26(2)</td></tr>
+        <tr><td>Notargebühr (notarial deed)</td><td>~1–2% (min €150 + USt 20%)</td><td>Notariatsordnung + NO-Tarif</td></tr>
+        <tr><td>Maklerprovision (agent)</td><td>max 3% + USt 20% per side</td><td>MaklerG §15; each party pays own agent</td></tr>
+        <tr><td>ImmoESt (capital gains on resale)</td><td>30% on gain</td><td>ImmoEStG §30; exempt if primary residence held 2+ yrs</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-        <div id="income" class="tab-content">
-            <h2>Körperschaftsteuer (KöSt) & Einkommensteuer (ESt)</h2>
-            <div class="form-group">
-                <label>Annual Income (EUR)</label>
-                <input type="number" id="income-amt" placeholder="75000" value="75000" oninput="calcIncome()">
-            </div>
-            <div class="form-group">
-                <label>Type</label>
-                <select id="income-type" onchange="calcIncome()">
-                    <option value="est">Einzelunternehmer (ESt)</option>
-                    <option value="kost">GmbH/AG (KöSt)</option>
-                </select>
-            </div>
-            <button onclick="calcIncome()">Calculate</button>
-            <div id="income-result" class="result" style="display:none;">
-                <div class="result-row"><span>Income Tax (KöSt 23% / ESt progressive)</span><span id="income-tax">€0</span></div>
-                <div class="result-row"><span>USt 20% (if applicable)</span><span id="ust-amt">€0</span></div>
-                <div class="result-row total"><span>Total Tax Burden</span><span id="income-total">€0</span></div>
-                <div class="note">KöSt 2024+: 23%. ESt: 0%-55% progressive (€1M+ top bracket).</div>
-            </div>
-        </div>
+  <div id="kost" class="tab-panel">
+    <h2>Körperschaftsteuer / Einkommensteuer (KöSt/ESt)</h2>
+    <label>Annual Taxable Income / Profit (€)</label>
+    <input type="number" id="kost-income" placeholder="200000" value="200000">
+    <label>Taxpayer Type</label>
+    <select id="kost-type">
+      <option value="kost">GmbH/AG — KöSt 23% (from 2024)</option>
+      <option value="est">Individual — ESt (progressive brackets)</option>
+    </select>
+    <button class="btn" onclick="calcKoSt()">Calculate</button>
+    <div id="kost-result" class="result" style="display:none"></div>
+    <table>
+      <thead><tr><th>Tax</th><th>Rate/Band</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>KöSt (2024+)</td><td>23%</td><td>Down from 25% (2022) → 24% (2023) → 23% (2024); Ökosoziale Steuerreform</td></tr>
+        <tr><td>KöSt Mindestkörperschaftsteuer</td><td>€500/yr (GmbH), €1,750/yr (AG)</td><td>Payable even if loss-making; creditable against future KöSt</td></tr>
+        <tr><td>ESt: 0%</td><td>€0 – €11,693</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 20%</td><td>€11,694 – €18,549</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 30%</td><td>€18,550 – €31,393</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 41%</td><td>€31,394 – €60,000</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 48%</td><td>€60,001 – €90,000</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 50%</td><td>€90,001 – €1,000,000</td><td>EStG §33</td></tr>
+        <tr><td>ESt: 55%</td><td>Above €1,000,000</td><td>Spitzensteuersatz; temporary measure extended</td></tr>
+        <tr><td>Kapitalertragsteuer (KESt)</td><td>27.5%</td><td>On dividends, interest; final withholding</td></tr>
+        <tr><td>USt standard</td><td>20%</td><td>Reduced: 13% (culture/sport/hotels), 10% (food/medical/books)</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-        <div id="abfertigung" class="tab-content">
-            <h2>Abfertigung Neu (Severance/Vesting)</h2>
-            <div class="form-group">
-                <label>Monthly Gross Salary (EUR)</label>
-                <input type="number" id="abfert-salary" placeholder="3500" value="3500" oninput="calcAbfertigung()">
-            </div>
-            <div class="form-group">
-                <label>Years Employed</label>
-                <input type="number" id="abfert-years" placeholder="5" value="5" oninput="calcAbfertigung()">
-            </div>
-            <button onclick="calcAbfertigung()">Calculate</button>
-            <div id="abfert-result" class="result" style="display:none;">
-                <div class="result-row"><span>Monthly BMVG Contribution (1.53%)</span><span id="bmvg-monthly">€0</span></div>
-                <div class="result-row"><span>Annual Contribution</span><span id="bmvg-annual">€0</span></div>
-                <div class="result-row"><span>Total Vested (Abfertigung Neu)</span><span id="abfert-total">€0</span></div>
-                <div class="note">Mitarbeiter-Vorsorgekasse (BMVG 2002): 1.53% employer contribution, monthly into individual account.</div>
-            </div>
-        </div>
+  <div id="abf" class="tab-panel">
+    <h2>Abfertigung Neu — Severance &amp; Termination Pay</h2>
+    <label>Gross Monthly Salary (€)</label>
+    <input type="number" id="abf-salary" placeholder="3500" value="3500">
+    <label>Years of Service</label>
+    <input type="number" id="abf-years" placeholder="7" value="7">
+    <button class="btn" onclick="calcAbf()">Calculate</button>
+    <div id="abf-result" class="result" style="display:none"></div>
+    <table>
+      <thead><tr><th>System</th><th>Entitlement</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Abfertigung Neu (post-2003)</td><td>1.53% employer contribution per month into MVK</td><td>BMVG 2002; individual account; paid on all terminations</td></tr>
+        <tr><td>Abfertigung Alt (pre-2003 employees)</td><td>2mths (&lt;3yr) up to 12mths (&gt;25yr)</td><td>AngG §23; payable only on employer-initiated termination</td></tr>
+        <tr><td>Kündigungsentschädigung (wrongful dismissal)</td><td>Up to remaining notice period pay</td><td>AngG §29; ASGG court jurisdiction</td></tr>
+        <tr><td>Notice period (Kündigungsfrist)</td><td>6wk (&lt;2yr) to 5mths (&gt;25yr)</td><td>AngG §20; by quarter-end</td></tr>
+        <tr><td>Minimum wage 2025</td><td>No universal minimum; sectoral KV (Kollektivvertrag)</td><td>Most KV minimums: €1,800–€2,500 gross/mth</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-        <div id="anwalt" class="tab-content">
-            <h2>Rechtsanwalt Fees</h2>
-            <div class="form-group">
-                <label>Hourly Rate (EUR)</label>
-                <input type="number" id="anwalt-rate" placeholder="300" value="300" oninput="calcAnwalt()">
-            </div>
-            <div class="form-group">
-                <label>Hours Estimated</label>
-                <input type="number" id="anwalt-hours" placeholder="20" value="20" oninput="calcAnwalt()">
-            </div>
-            <button onclick="calcAnwalt()">Calculate</button>
-            <div id="anwalt-result" class="result" style="display:none;">
-                <div class="result-row"><span>Net Fee (RATG)</span><span id="anwalt-fee">€0</span></div>
-                <div class="result-row"><span>USt 20%</span><span id="anwalt-ust">€0</span></div>
-                <div class="result-row total"><span>Total (incl. USt)</span><span id="anwalt-total">€0</span></div>
-                <div class="note">Rechtsanwaltstarifgesetz (RATG): €200-500/hr typical range. Rates vary by experience and complexity.</div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function showTab(name) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(name).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function fmt(n) { return '€' + Math.round(n).toLocaleString('de-AT'); }
-
-        function calcGrESt() {
-            const price = parseFloat(document.getElementById('grest-price').value) || 0;
-            const type = document.getElementById('grest-type').value;
-            let grest = 0;
-            if (type === 'normal') grest = price * 0.035;
-            else {
-                if (price <= 250000) grest = price * 0.02;
-                else if (price <= 400000) grest = 250000 * 0.02 + (price - 250000) * 0.035;
-                else grest = 250000 * 0.02 + 150000 * 0.035 + (price - 400000) * 0.06;
-            }
-            const eintrag = price * 0.011;
-            const notar = price * 0.015;
-            const makler = (price * 0.03 * 1.2);
-            const total = grest + eintrag + notar + makler;
-            document.getElementById('grest-amt').textContent = fmt(grest);
-            document.getElementById('eintrag-amt').textContent = fmt(eintrag);
-            document.getElementById('notar-amt').textContent = fmt(notar);
-            document.getElementById('makler-amt').textContent = fmt(makler);
-            document.getElementById('grest-total').textContent = fmt(total);
-            document.getElementById('grest-result').style.display = 'block';
-        }
-
-        function calcIncome() {
-            const income = parseFloat(document.getElementById('income-amt').value) || 0;
-            const type = document.getElementById('income-type').value;
-            let tax = type === 'kost' ? income * 0.23 : income * 0.30; // simplified
-            let ust = income * 0.20;
-            document.getElementById('income-tax').textContent = fmt(tax);
-            document.getElementById('ust-amt').textContent = fmt(ust);
-            document.getElementById('income-total').textContent = fmt(tax + ust);
-            document.getElementById('income-result').style.display = 'block';
-        }
-
-        function calcAbfertigung() {
-            const salary = parseFloat(document.getElementById('abfert-salary').value) || 0;
-            const years = parseFloat(document.getElementById('abfert-years').value) || 0;
-            const monthly = salary * 0.0153;
-            const annual = monthly * 12;
-            const total = annual * years;
-            document.getElementById('bmvg-monthly').textContent = fmt(monthly);
-            document.getElementById('bmvg-annual').textContent = fmt(annual);
-            document.getElementById('abfert-total').textContent = fmt(total);
-            document.getElementById('abfert-result').style.display = 'block';
-        }
-
-        function calcAnwalt() {
-            const rate = parseFloat(document.getElementById('anwalt-rate').value) || 0;
-            const hours = parseFloat(document.getElementById('anwalt-hours').value) || 0;
-            const fee = rate * hours;
-            const ust = fee * 0.20;
-            document.getElementById('anwalt-fee').textContent = fmt(fee);
-            document.getElementById('anwalt-ust').textContent = fmt(ust);
-            document.getElementById('anwalt-total').textContent = fmt(fee + ust);
-            document.getElementById('anwalt-result').style.display = 'block';
-        }
-    </script>
+  <div id="ra" class="tab-panel">
+    <h2>Rechtsanwalt — Austrian Lawyer Fee Estimates</h2>
+    <table>
+      <thead><tr><th>Matter</th><th>Typical Fee Range</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Hourly rate</td><td>€200–€500 + USt 20%</td><td>Rechtsanwaltstarifgesetz (RATG) sets minimum tariffs by TPU</td></tr>
+        <tr><td>Property purchase review</td><td>€800–€2,500</td><td>Includes KV review, due diligence, correspondence</td></tr>
+        <tr><td>Divorce (consensual)</td><td>€1,500–€4,000</td><td>ABGB §55a; notarial settlement required</td></tr>
+        <tr><td>GmbH formation</td><td>€1,500–€4,000 total</td><td>Notarakt required (Notariatsordnung §52a)</td></tr>
+        <tr><td>Employment dispute (Arbeits- und Sozialgericht)</td><td>€1,500–€6,000</td><td>Kein Kostenersatz im 1. Instanzverfahren (no costs recovery 1st instance)</td></tr>
+        <tr><td>Verfahrenshilfe (legal aid)</td><td>Free if income &lt; exemption threshold</td><td>ZPO §63; assessed by court on application</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<footer><p>&copy; 2025 AvökatFinder — For guidance only. Consult a licensed Rechtsanwalt for specific advice.</p></footer>
+<script>
+function showTab(id){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');event.target.classList.add('active')}
+function fmt(n){return'€'+n.toLocaleString('de-AT',{minimumFractionDigits:0,maximumFractionDigits:0})}
+function calcGrESt(){
+  const price=parseFloat(document.getElementById('grest-price').value)||0;
+  const type=document.getElementById('grest-type').value;
+  let grest=0;
+  if(type==='market'){grest=price*0.035}
+  else{const b1=Math.min(price,250000)*0.02;const b2=Math.max(0,Math.min(price,400000)-250000)*0.035;const b3=Math.max(0,price-400000)*0.06;grest=b1+b2+b3}
+  const eintrag=price*0.011;const notary=Math.max(150,price*0.012);
+  const total=grest+eintrag+notary;
+  document.getElementById('grest-result').style.display='block';
+  document.getElementById('grest-result').innerHTML=`<div class="result-row"><span>GrESt</span><span>${fmt(grest)}</span></div><div class="result-row"><span>Eintragungsgebühr 1.1%</span><span>${fmt(eintrag)}</span></div><div class="result-row"><span>Notargebühr (approx.)</span><span>${fmt(notary)}</span></div><div class="result-row"><span>Total</span><span>${fmt(total)} (${(total/price*100).toFixed(2)}%)</span></div>`;
+}
+function calcKoSt(){
+  const inc=parseFloat(document.getElementById('kost-income').value)||0;
+  const type=document.getElementById('kost-type').value;
+  let tax=0,label='';
+  if(type==='kost'){tax=inc*0.23;label='KöSt 23%'}
+  else{
+    if(inc<=11693){tax=0;label='ESt 0%'}
+    else if(inc<=18549){tax=(inc-11693)*0.20;label='ESt 20%'}
+    else if(inc<=31393){tax=(18549-11693)*0.20+(inc-18549)*0.30;label='ESt 20–30%'}
+    else if(inc<=60000){tax=(18549-11693)*0.20+(31393-18549)*0.30+(inc-31393)*0.41;label='ESt progressive'}
+    else if(inc<=90000){tax=(18549-11693)*0.20+(31393-18549)*0.30+(60000-31393)*0.41+(inc-60000)*0.48;label='ESt progressive'}
+    else{tax=(18549-11693)*0.20+(31393-18549)*0.30+(60000-31393)*0.41+(90000-60000)*0.48+(inc-90000)*0.50;label='ESt progressive'}
+  }
+  document.getElementById('kost-result').style.display='block';
+  document.getElementById('kost-result').innerHTML=`<div class="result-row"><span>${label}</span><span>${fmt(tax)}</span></div><div class="result-row"><span>Net after tax</span><span>${fmt(inc-tax)}</span></div><div class="result-row"><span>Effective rate</span><span>${(tax/inc*100).toFixed(1)}%</span></div>`;
+}
+function calcAbf(){
+  const sal=parseFloat(document.getElementById('abf-salary').value)||0;
+  const yrs=parseFloat(document.getElementById('abf-years').value)||0;
+  const mvk=sal*0.0153*yrs*12;
+  document.getElementById('abf-result').style.display='block';
+  document.getElementById('abf-result').innerHTML=`<div class="result-row"><span>MVK pot (Abfertigung Neu, approx.)</span><span>${fmt(mvk)}</span></div><div class="result-row"><span>Basis: 1.53% × ${yrs} yr × 12 mths × ${fmt(sal)}</span><span></span></div>`;
+}
+</script>
 </body>
 </html>
