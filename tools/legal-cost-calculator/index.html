@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Cost Calculator - AvokatFinder Austria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; }
+        h1 { background: linear-gradient(135deg, #ed2939, #c41e35); color: white; padding: 30px; text-align: center; }
+        .tabs { display: flex; border-bottom: 2px solid #ed2939; background: #f9f9f9; }
+        .tab-btn { flex: 1; padding: 15px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; border-bottom: 3px solid transparent; transition: all 0.3s; }
+        .tab-btn.active { color: #ed2939; border-bottom-color: #ed2939; background: white; }
+        .tab-content { display: none; padding: 40px; }
+        .tab-content.active { display: block; }
+        .form-group { margin-bottom: 25px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #333; }
+        input, select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 1em; transition: border-color 0.3s; }
+        input:focus, select:focus { border-color: #ed2939; outline: none; }
+        .result { background: #f0f0f0; padding: 20px; border-radius: 6px; margin-top: 20px; border-left: 5px solid #ed2939; }
+        .result-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd; }
+        .result-row.total { font-weight: bold; font-size: 1.2em; border: none; color: #ed2939; }
+        .note { font-size: 0.85em; color: #666; margin-top: 10px; font-style: italic; }
+        button { background: #ed2939; color: white; padding: 12px 30px; border: none; border-radius: 6px; font-size: 1em; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #c41e35; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Austrian Legal Cost Calculator</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('grest')">Grunderwerbsteuer</button>
+            <button class="tab-btn" onclick="showTab('income')">KöSt/ESt</button>
+            <button class="tab-btn" onclick="showTab('abfertigung')">Abfertigung</button>
+            <button class="tab-btn" onclick="showTab('anwalt')">Rechtsanwalt</button>
+        </div>
+
+        <div id="grest" class="tab-content active">
+            <h2>Grunderwerbsteuer (Property Transfer Tax)</h2>
+            <div class="form-group">
+                <label>Purchase Price (EUR)</label>
+                <input type="number" id="grest-price" placeholder="450000" value="450000" oninput="calcGrESt()">
+            </div>
+            <div class="form-group">
+                <label>Transfer Type</label>
+                <select id="grest-type" onchange="calcGrESt()">
+                    <option value="normal">Normal Purchase</option>
+                    <option value="family">Family Transfer (Schenkung/Erbschaft)</option>
+                </select>
+            </div>
+            <button onclick="calcGrESt()">Calculate</button>
+            <div id="grest-result" class="result" style="display:none;">
+                <div class="result-row"><span>Grunderwerbsteuer (GrESt)</span><span id="grest-amt">€0</span></div>
+                <div class="result-row"><span>Eintragungsgebühr (Land Register, 1.1%)</span><span id="eintrag-amt">€0</span></div>
+                <div class="result-row"><span>Notargebühr (~1.5%)</span><span id="notar-amt">€0</span></div>
+                <div class="result-row"><span>Maklerprovision (~3% + 20% USt)</span><span id="makler-amt">€0</span></div>
+                <div class="result-row total"><span>Total Costs</span><span id="grest-total">€0</span></div>
+                <div class="note">GrESt: 3.5% standard rate. Family transfers: 2% up to €250k, 3.5% €250k-€400k, 6% above €400k.</div>
+            </div>
+        </div>
+
+        <div id="income" class="tab-content">
+            <h2>Körperschaftsteuer (KöSt) & Einkommensteuer (ESt)</h2>
+            <div class="form-group">
+                <label>Annual Income (EUR)</label>
+                <input type="number" id="income-amt" placeholder="75000" value="75000" oninput="calcIncome()">
+            </div>
+            <div class="form-group">
+                <label>Type</label>
+                <select id="income-type" onchange="calcIncome()">
+                    <option value="est">Einzelunternehmer (ESt)</option>
+                    <option value="kost">GmbH/AG (KöSt)</option>
+                </select>
+            </div>
+            <button onclick="calcIncome()">Calculate</button>
+            <div id="income-result" class="result" style="display:none;">
+                <div class="result-row"><span>Income Tax (KöSt 23% / ESt progressive)</span><span id="income-tax">€0</span></div>
+                <div class="result-row"><span>USt 20% (if applicable)</span><span id="ust-amt">€0</span></div>
+                <div class="result-row total"><span>Total Tax Burden</span><span id="income-total">€0</span></div>
+                <div class="note">KöSt 2024+: 23%. ESt: 0%-55% progressive (€1M+ top bracket).</div>
+            </div>
+        </div>
+
+        <div id="abfertigung" class="tab-content">
+            <h2>Abfertigung Neu (Severance/Vesting)</h2>
+            <div class="form-group">
+                <label>Monthly Gross Salary (EUR)</label>
+                <input type="number" id="abfert-salary" placeholder="3500" value="3500" oninput="calcAbfertigung()">
+            </div>
+            <div class="form-group">
+                <label>Years Employed</label>
+                <input type="number" id="abfert-years" placeholder="5" value="5" oninput="calcAbfertigung()">
+            </div>
+            <button onclick="calcAbfertigung()">Calculate</button>
+            <div id="abfert-result" class="result" style="display:none;">
+                <div class="result-row"><span>Monthly BMVG Contribution (1.53%)</span><span id="bmvg-monthly">€0</span></div>
+                <div class="result-row"><span>Annual Contribution</span><span id="bmvg-annual">€0</span></div>
+                <div class="result-row"><span>Total Vested (Abfertigung Neu)</span><span id="abfert-total">€0</span></div>
+                <div class="note">Mitarbeiter-Vorsorgekasse (BMVG 2002): 1.53% employer contribution, monthly into individual account.</div>
+            </div>
+        </div>
+
+        <div id="anwalt" class="tab-content">
+            <h2>Rechtsanwalt Fees</h2>
+            <div class="form-group">
+                <label>Hourly Rate (EUR)</label>
+                <input type="number" id="anwalt-rate" placeholder="300" value="300" oninput="calcAnwalt()">
+            </div>
+            <div class="form-group">
+                <label>Hours Estimated</label>
+                <input type="number" id="anwalt-hours" placeholder="20" value="20" oninput="calcAnwalt()">
+            </div>
+            <button onclick="calcAnwalt()">Calculate</button>
+            <div id="anwalt-result" class="result" style="display:none;">
+                <div class="result-row"><span>Net Fee (RATG)</span><span id="anwalt-fee">€0</span></div>
+                <div class="result-row"><span>USt 20%</span><span id="anwalt-ust">€0</span></div>
+                <div class="result-row total"><span>Total (incl. USt)</span><span id="anwalt-total">€0</span></div>
+                <div class="note">Rechtsanwaltstarifgesetz (RATG): €200-500/hr typical range. Rates vary by experience and complexity.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(name) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(name).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function fmt(n) { return '€' + Math.round(n).toLocaleString('de-AT'); }
+
+        function calcGrESt() {
+            const price = parseFloat(document.getElementById('grest-price').value) || 0;
+            const type = document.getElementById('grest-type').value;
+            let grest = 0;
+            if (type === 'normal') grest = price * 0.035;
+            else {
+                if (price <= 250000) grest = price * 0.02;
+                else if (price <= 400000) grest = 250000 * 0.02 + (price - 250000) * 0.035;
+                else grest = 250000 * 0.02 + 150000 * 0.035 + (price - 400000) * 0.06;
+            }
+            const eintrag = price * 0.011;
+            const notar = price * 0.015;
+            const makler = (price * 0.03 * 1.2);
+            const total = grest + eintrag + notar + makler;
+            document.getElementById('grest-amt').textContent = fmt(grest);
+            document.getElementById('eintrag-amt').textContent = fmt(eintrag);
+            document.getElementById('notar-amt').textContent = fmt(notar);
+            document.getElementById('makler-amt').textContent = fmt(makler);
+            document.getElementById('grest-total').textContent = fmt(total);
+            document.getElementById('grest-result').style.display = 'block';
+        }
+
+        function calcIncome() {
+            const income = parseFloat(document.getElementById('income-amt').value) || 0;
+            const type = document.getElementById('income-type').value;
+            let tax = type === 'kost' ? income * 0.23 : income * 0.30; // simplified
+            let ust = income * 0.20;
+            document.getElementById('income-tax').textContent = fmt(tax);
+            document.getElementById('ust-amt').textContent = fmt(ust);
+            document.getElementById('income-total').textContent = fmt(tax + ust);
+            document.getElementById('income-result').style.display = 'block';
+        }
+
+        function calcAbfertigung() {
+            const salary = parseFloat(document.getElementById('abfert-salary').value) || 0;
+            const years = parseFloat(document.getElementById('abfert-years').value) || 0;
+            const monthly = salary * 0.0153;
+            const annual = monthly * 12;
+            const total = annual * years;
+            document.getElementById('bmvg-monthly').textContent = fmt(monthly);
+            document.getElementById('bmvg-annual').textContent = fmt(annual);
+            document.getElementById('abfert-total').textContent = fmt(total);
+            document.getElementById('abfert-result').style.display = 'block';
+        }
+
+        function calcAnwalt() {
+            const rate = parseFloat(document.getElementById('anwalt-rate').value) || 0;
+            const hours = parseFloat(document.getElementById('anwalt-hours').value) || 0;
+            const fee = rate * hours;
+            const ust = fee * 0.20;
+            document.getElementById('anwalt-fee').textContent = fmt(fee);
+            document.getElementById('anwalt-ust').textContent = fmt(ust);
+            document.getElementById('anwalt-total').textContent = fmt(fee + ust);
+            document.getElementById('anwalt-result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
